@@ -100,17 +100,105 @@ int main() {
 // You may add global variables, functions, and/or
 // class defintions here if you wish.
 
+list<Data *>::iterator lfrontitr;
+list<Data *>::iterator lbackitr;
+
+
+
 myObject *sortedBucket[120000];
 myObject listObject[120000];
-int count = 0;
+//int count = 0;
+
+int T3Array[1000000] = {0};
 
 void populateData(string &s)
 {
-	while(
+	while()
 }
+
+
+
+
+void insertionSort(list<Data *> &l ) {
+	lfrontitr = l.begin();
+	lbackitr = l.end();
+	
+	list<Data *>::iterator itr;
+	list<Data *>::iterator itrbackward;	
+
+	for(itr = lfrontitr; itr != lbackitr; itr++) {
+		for(itrbackward = itr; itr != lfrontitr; itrbackward--) {
+						
+
+}
+
+
+void countingSort (list<Data *> &l ) {
+	
+	lfrontitr = l.begin();
+	lbackitr = l.end();
+	
+	list<Data *>::iterator itr;
+
+	for(itr = lfrontitr; itr != lbackitr; itr++) {
+		int index = 1000 * atof((*itr)->data);
+		T3Array[index]++;
+	}
+	index = 0;
+	for(itr = lfrontitr; itr != lbackitr; itr++) {
+		if(T3Array[index] != 0) {
+			T3Array[index]--;
+			*itr->data = index;
+		} else {
+			index++;
+		}
+	}
+}
+
+
+
+
 
 void sortDataList(list<Data *> &l) {
   // Fill in this function
+
+	list<Data *>::iterator lfrontitr = l.begin();
+	list<Data *>::iterator lbackitr = l.end();
+	list<Data *>::iterator itr;
+	int firstSix = atoi((*lfrontitr)->data.substr(0,6));
+	int type;
+	int size = l.size();
+	int strlen = lfrontitr->data.length();
+	if(size <= 120000) {
+		type = 1;
+	} else if(strlen <= 8) {
+		type == 3;
+	} else {
+//		for(itr = lfrontitr; itr != lbackitr; itr++) {
+			if( firstSix == atoi((*(itr+1))->data.substr(0,6)) && firstSix == atoi((*(itr+2))->data.substr(0,6)) ) {
+				type = 4;
+			} else {
+				type = 2;
+			}
+//		}
+	}
+
+
+
+
+	switch (type) {
+	case 1:
+		//DO T1 BUCKET SORT
+	case 2:
+		//DO T2 BUCKET SORT
+	case 3:
+		//DO T3 COUNTING SORT
+	case 4:
+		//DO T4 INSERTION SORT
+
+
+
+	//BUCKET SORT FOR T1 AND T2
 
 	//int i  = 0;
 	//Setting up empty list
@@ -132,7 +220,6 @@ public:
 	unsigned int block1, block2, block3, block4, block5;
 	Data *pNode;
 	Data *next;
-	Data *third;
 	myObject();
 };
 
